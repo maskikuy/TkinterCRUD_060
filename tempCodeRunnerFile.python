@@ -1,0 +1,11 @@
+import sqlite3
+con = sqlite3.connect("tutorial.db")
+cur = con.cursor()
+_title=input("masukkan nama movie:")
+_year=input("Masukkan tahun movie:")
+_rating=input("masukkan rating movienya:")
+cur.execute("""
+    INSERT INTO movie VALUES
+        ('{}', {}, {})
+""".format(_title,_year,_rating))
+con.commit()
